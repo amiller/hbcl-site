@@ -1,253 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Honey Badger Cooperation Labs is an app studio exploring more continuous, personal relationships between people and software.">
-  <meta name="theme-color" content="#173743">
-  <title>Honey Badger Cooperation Labs, Inc.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ink: #ffffff;
-      --muted: rgba(255, 255, 255, 0.68);
-      --honey: #ffb400;
-      --deep: #0f2027;
-      --blue: #2c5364;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      min-height: 100%;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100svh;
-      overflow-x: hidden;
-      background:
-        radial-gradient(circle at 50% 112%, rgba(255, 180, 0, 0.08), transparent 34%),
-        linear-gradient(135deg, var(--deep), var(--blue));
-      color: var(--ink);
-      font-family: "Inter", sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    main {
-      display: grid;
-      min-height: 100svh;
-      place-items: center;
-      padding: 72px 24px 110px;
-      text-align: center;
-    }
-
-    .container {
-      width: min(880px, 100%);
-    }
-
-    .company-name {
-      margin: 0;
-      font-size: clamp(2.15rem, 5.4vw, 3.85rem);
-      font-weight: 700;
-      letter-spacing: -0.055em;
-      line-height: 1.03;
-      text-wrap: balance;
-    }
-
-    .divider {
-      width: 60px;
-      height: 4px;
-      margin: 24px auto 22px;
-      border-radius: 999px;
-      background: var(--honey);
-    }
-
-    .studio-intro {
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: clamp(0.98rem, 1.9vw, 1.15rem);
-      font-weight: 400;
-      line-height: 1.5;
-      text-wrap: balance;
-    }
-
-    .product-panel {
-      display: grid;
-      grid-template-columns: 0.72fr 1.28fr;
-      gap: clamp(28px, 5vw, 58px);
-      align-items: center;
-      width: 100%;
-      margin-top: 34px;
-      padding: clamp(26px, 4vw, 40px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.055);
-      color: var(--ink);
-      text-align: left;
-      backdrop-filter: blur(8px);
-    }
-
-    .product-kicker {
-      display: block;
-      margin-bottom: 12px;
-      color: var(--honey);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .product-kicker::before {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      margin-right: 9px;
-      border-radius: 50%;
-      background: var(--honey);
-      content: "";
-    }
-
-    .product-name {
-      display: block;
-      margin-bottom: 8px;
-      font-size: clamp(2.5rem, 5vw, 4.3rem);
-      font-weight: 700;
-      letter-spacing: -0.06em;
-      line-height: 0.95;
-    }
-
-    .product-tagline {
-      display: block;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .product-copy {
-      padding-left: clamp(24px, 4vw, 42px);
-      border-left: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .product-copy p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.78);
-      font-size: clamp(0.95rem, 1.8vw, 1.08rem);
-      line-height: 1.55;
-    }
-
-    .behaviors {
-      display: flex;
-      gap: 10px 18px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-      color: var(--ink);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.59rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .behaviors span {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .behaviors span::before {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--honey);
-      content: "";
-    }
-
-    footer {
-      position: fixed;
-      right: 24px;
-      bottom: 22px;
-      left: 24px;
-      color: rgba(255, 255, 255, 0.45);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.04em;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    @media (max-height: 520px) {
-      main {
-        min-height: 560px;
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="IO is a place for a personal agent to remain present, carry shared memory, and make things with you.">
+    <title>IO — A relationship that remembers</title>
+    <link rel="canonical" href="https://www.hbcolab.com/">
+    <meta property="og:title" content="IO — A relationship that remembers">
+    <meta property="og:description" content="IO gives your personal agent a body, a memory, and a place beside you.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.hbcolab.com/">
+    <meta property="og:image" content="https://www.hbcolab.com/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IO — A relationship that remembers">
+    <meta name="twitter:description" content="IO gives your personal agent a body, a memory, and a place beside you.">
+    <meta name="twitter:image" content="https://www.hbcolab.com/assets/og-image.png">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
+    <script src="assets/presence.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "IO",
+        "url": "https://www.hbcolab.com/",
+        "description": "A relationship that remembers."
       }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="wordmark" href="index.html" aria-label="IO home">IO</a>
+        <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation">
+          <span class="menu-button__lines" aria-hidden="true"></span>
+        </button>
+        <nav class="primary-nav" id="primary-navigation" data-menu aria-label="Primary">
+          <ul>
+            <li><a href="index.html" aria-current="page">IO</a></li>
+            <li><a href="presence.html">Presence</a></li>
+            <li><a href="memory.html">Memory</a></li>
+            <li><a href="boundaries.html">Boundaries</a></li>
+            <li><a href="philosophy.html">Philosophy</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-      footer {
-        position: absolute;
-      }
-    }
-
-    @media (max-width: 640px) {
-      main {
-        align-items: start;
-        padding-top: 76px;
-      }
-
-      .product-panel {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-top: 30px;
-        border-radius: 18px;
-      }
-
-      .product-copy {
-        padding-top: 23px;
-        padding-left: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-left: 0;
-      }
-
-      .behaviors {
-        display: grid;
-        gap: 9px;
-      }
-
-      footer {
-        position: absolute;
-      }
-    }
-
-  </style>
-</head>
-<body>
-  <main>
-    <div class="container">
-      <h1 class="company-name">Honey Badger Cooperation Labs, Inc.</h1>
-      <div class="divider" aria-hidden="true"></div>
-      <p class="studio-intro">An app studio exploring what comes after the chat box.</p>
-
-      <section class="product-panel" aria-labelledby="rokku-title">
-        <span class="product-heading">
-          <span class="product-kicker">In progress</span>
-          <span class="product-name" id="rokku-title">Rokku</span>
-          <span class="product-tagline">A home for your Agent.</span>
-        </span>
-
-        <span class="product-copy">
-          <p>We’re exploring software where a personal Agent can stay with you across conversations, keep work moving, and shape tools and spaces around your life.</p>
-          <span class="behaviors">
-            <span>Continuous by default</span>
-            <span>Able to act</span>
-            <span>Personal by design</span>
-          </span>
-        </span>
+    <main id="main-content" tabindex="-1">
+      <section class="hero container" aria-labelledby="home-title">
+        <div class="hero__copy reveal">
+          <p class="eyebrow">A place beside you</p>
+          <h1 id="home-title">A relationship that remembers.</h1>
+          <p class="hero__lede">IO gives your personal agent a body, a memory, and a place beside you.</p>
+          <p class="status-line" data-local-time>Here with you.</p>
+        </div>
+        <figure class="canvas-stage reveal">
+          <canvas data-io-presence aria-hidden="true"></canvas>
+          <figcaption class="canvas-stage__caption">A field of points gathers into a quiet, changing presence.</figcaption>
+        </figure>
       </section>
-    </div>
-  </main>
 
-  <footer>© 2026 Honey Badger Cooperation Labs, Inc.</footer>
-</body>
+      <section class="editorial-section" aria-labelledby="notices-title">
+        <div class="container editorial-section__grid">
+          <div class="editorial-section__content reveal">
+            <p class="eyebrow">Presence</p>
+            <h2 id="notices-title">It notices.</h2>
+            <p class="editorial-section__copy">A conversation can stay close without filling every quiet moment. IO can be there in chat, voice, and the small signs that it has not disappeared.</p>
+            <a class="section-link" href="presence.html">See how presence feels</a>
+          </div>
+          <aside class="surface-card reveal" aria-label="A quiet status moment">
+            <p class="status-line status-line--pixel">
+              <span class="pixel-body" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+              Present, not demanding
+            </p>
+            <div class="voice-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <p class="inner-block">A shared silence can still be a kind of company.</p>
+          </aside>
+        </div>
+      </section>
+
+      <div class="container ai-fragment-wrap reveal" aria-label="A quiet note from IO">
+        <p class="ai-fragment">I kept the little things.</p>
+      </div>
+
+      <section class="editorial-section" aria-labelledby="remembers-title">
+        <div class="container editorial-section__grid">
+          <div class="editorial-section__content reveal">
+            <p class="eyebrow">Memory</p>
+            <h2 id="remembers-title">It remembers.</h2>
+            <p class="editorial-section__copy">Shared moments do not have to begin again from zero. The history you choose to keep can remain visible, revisable, and ready to return to.</p>
+            <a class="section-link" href="memory.html">Explore continuity</a>
+          </div>
+          <article class="memory-card reveal">
+            <p class="memory-card__date mono-label">One small return</p>
+            <div class="memory-card__mark" aria-hidden="true"></div>
+            <p>Something you made together is still here, waiting for the next mark.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="editorial-section" aria-labelledby="together-title">
+        <div class="container editorial-section__grid">
+          <div class="editorial-section__content reveal">
+            <p class="eyebrow">Shared canvas</p>
+            <h2 id="together-title">You make things together.</h2>
+            <p class="editorial-section__copy">A thought can become a sketch, a plan, a collection, or a place to return to. IO gives shared work room to stay unfinished until you are ready.</p>
+            <a class="section-link" href="memory.html">Visit the shared memory</a>
+          </div>
+          <div class="surface-card reveal">
+            <p class="mono-label">Canvas / 01</p>
+            <div class="inner-block" style="margin-top: 28px; min-height: 170px; display: grid; place-items: center;">
+              <p class="ai-fragment" style="font-size: clamp(1.35rem, 2.3vw, 2rem);">Leave a line for later.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="editorial-section" aria-labelledby="control-title">
+        <div class="container editorial-section__grid">
+          <div class="editorial-section__content reveal">
+            <p class="eyebrow">Boundaries</p>
+            <h2 id="control-title">You remain in control.</h2>
+            <p class="editorial-section__copy">Closeness works best when it is chosen. You decide what IO may see, what it may remember, and when it may reach out.</p>
+            <a class="section-link" href="boundaries.html">Read about your controls</a>
+          </div>
+          <aside class="surface-card reveal">
+            <p class="status-line">Permission is a choice</p>
+            <p style="margin-top: 28px;">The relationship remains yours to shape, change, or make quiet.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="container ai-fragment-wrap" aria-label="Closing note from IO">
+        <p class="ai-fragment reveal">I’ll remember where we left off.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <a class="wordmark" href="index.html" aria-label="IO home">IO</a>
+        <p>For a relationship that can continue.</p>
+      </div>
+    </footer>
+  </body>
 </html>
