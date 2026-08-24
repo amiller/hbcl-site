@@ -1,8 +1,10 @@
 (function () {
   "use strict";
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reduceMotion = motionPreference.matches;
   const root = document.documentElement;
+  const agentStateControllers = new WeakMap();
   root.classList.add("js");
 
   function setupMenu() {
@@ -72,12 +74,98 @@
     });
   }
 
-  window.IOSite = Object.freeze({ reduceMotion, setupMenu, setupReveal, setupLocalTime });
+  function setupAgentStates() {
+    document.querySelectorAll("[data-agent-state-list]").forEach((list) => {
+      if (agentStateControllers.has(list)) return;
+      const states = Array.from(list.querySelectorAll("[data-agent-state]"));
+      if (!states.length) return;
+
+      const control = list.id
+        ? document.querySelector(`[data-agent-motion-toggle][aria-controls="${list.id}"]`)
+        : null;
+      let activeIndex = 0;
+      let intervalId = null;
+      let manuallyPaused = false;
+      let destroyed = false;
+
+      const showState = (index) => {
+        activeIndex = index % states.length;
+        list.dataset.agentStateIndex = String(activeIndex);
+        states.forEach((state, stateIndex) => {
+          const isActive = stateIndex === activeIndex;
+          state.classList.toggle("is-active", isActive);
+          state.setAttribute("aria-current", String(isActive));
+        });
+      };
+
+      const stop = () => {
+        if (intervalId === null) return;
+        clearInterval(intervalId);
+        intervalId = null;
+      };
+
+      const updateControl = () => {
+        if (!control) return;
+        const systemReduced = motionPreference.matches;
+        const paused = systemReduced || manuallyPaused;
+        control.disabled = systemReduced;
+        control.setAttribute("aria-pressed", String(paused));
+        control.textContent = systemReduced ? "Motion reduced" : manuallyPaused ? "Resume Agent" : "Pause Agent";
+      };
+
+      const destroy = () => {
+        if (destroyed) return;
+        destroyed = true;
+        stop();
+        motionPreference.removeEventListener?.("change", syncMotion);
+        control?.removeEventListener?.("click", togglePaused);
+        agentStateControllers.delete(list);
+      };
+
+      const start = () => {
+        stop();
+        if (motionPreference.matches || manuallyPaused || states.length < 2 || !list.isConnected) return;
+        intervalId = setInterval(() => {
+          if (!list.isConnected) {
+            destroy();
+            return;
+          }
+          showState(activeIndex + 1);
+        }, 2800);
+      };
+
+      function syncMotion() {
+        if (motionPreference.matches) {
+          stop();
+          showState(0);
+        } else {
+          start();
+        }
+        updateControl();
+      }
+
+      function togglePaused() {
+        if (motionPreference.matches) return;
+        manuallyPaused = !manuallyPaused;
+        syncMotion();
+      }
+
+      agentStateControllers.set(list, { destroy });
+      control?.addEventListener("click", togglePaused);
+      if (typeof motionPreference.addEventListener === "function") motionPreference.addEventListener("change", syncMotion);
+      else motionPreference.addListener?.(syncMotion);
+      showState(activeIndex);
+      syncMotion();
+    });
+  }
+
+  window.IOSite = Object.freeze({ reduceMotion, setupMenu, setupReveal, setupLocalTime, setupAgentStates });
 
   const initialize = () => {
     setupMenu();
     setupReveal();
     setupLocalTime();
+    setupAgentStates();
   };
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize, { once: true });

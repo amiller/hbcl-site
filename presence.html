@@ -49,6 +49,13 @@
         </div>
         <div class="presence-organism" aria-label="A quiet point-cloud presence motif">
           <canvas class="presence-canvas" data-io-presence aria-hidden="true"></canvas>
+          <ul class="agent-telemetry" id="presence-agent-states" data-agent-telemetry data-agent-state-list aria-label="IO Agent telemetry">
+            <li data-agent-state><span>Signal</span><strong>Present</strong></li>
+            <li data-agent-state><span>Voice</span><strong>Listening</strong></li>
+            <li data-agent-state><span>Context</span><strong>Held nearby</strong></li>
+            <li data-agent-state><span>Agent online</span><strong>Quiet mode</strong></li>
+          </ul>
+          <button class="agent-motion-control" type="button" data-agent-motion-toggle aria-controls="presence-agent-states" aria-pressed="false">Pause Agent</button>
           <p class="canvas-description">A small point-cloud organism gathers, breathes, and settles into a quiet constellation.</p>
         </div>
       </section>
@@ -92,8 +99,14 @@
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <a class="wordmark" href="index.html" aria-label="IO home">IO</a>
-        <p>For a relationship that can continue.</p>
+        <div class="site-footer__product">
+          <a class="wordmark" href="index.html" aria-label="IO home">IO</a>
+          <div>
+            <p class="site-footer__version">IO App · Personal AI Agent · v1.0.0 (Build 1)</p>
+            <p>An AI product by Honey Badger Coop. Labs Inc.</p>
+          </div>
+        </div>
+        <p class="site-footer__legal">© 2026 Honey Badger Coop. Labs Inc. All rights reserved.</p>
       </div>
     </footer>
   </body>

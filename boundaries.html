@@ -47,6 +47,18 @@
         <p class="ai-fragment">I wait for the invitation.</p>
       </section>
 
+      <section class="boundary-gate reveal" aria-label="IO waits for permission">
+        <div class="boundary-gate__agent" data-agent-waiting>
+          <span class="boundary-gate__pulse" aria-hidden="true"></span>
+          <p class="mono-label">IO Agent / Waiting</p>
+        </div>
+        <div class="boundary-gate__threshold" aria-hidden="true"></div>
+        <div class="boundary-gate__permission">
+          <p class="eyebrow">Permission required</p>
+          <p>The Agent stays outside until you choose what may enter the shared space.</p>
+        </div>
+      </section>
+
       <section class="control-list" aria-label="Your controls">
         <article class="control-item">
           <p class="control-item__number">01</p>
@@ -87,8 +99,14 @@
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <a class="wordmark" href="index.html" aria-label="IO home">IO</a>
-        <p>A relationship that remembers.</p>
+        <div class="site-footer__product">
+          <a class="wordmark" href="index.html" aria-label="IO home">IO</a>
+          <div>
+            <p class="site-footer__version">IO App · Personal AI Agent · v1.0.0 (Build 1)</p>
+            <p>An AI product by Honey Badger Coop. Labs Inc.</p>
+          </div>
+        </div>
+        <p class="site-footer__legal">© 2026 Honey Badger Coop. Labs Inc. All rights reserved.</p>
       </div>
     </footer>
   </body>

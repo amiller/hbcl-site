@@ -22,10 +22,26 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "IO",
-        "url": "https://www.hbcolab.com/",
-        "description": "A relationship that remembers."
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "name": "IO",
+            "url": "https://www.hbcolab.com/",
+            "description": "A relationship that remembers."
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "IO",
+            "applicationCategory": "LifestyleApplication",
+            "operatingSystem": "iOS",
+            "softwareVersion": "1.0.0",
+            "description": "A personal AI Agent with presence, memory, and a place beside you.",
+            "creator": {
+              "@type": "Organization",
+              "name": "Honey Badger Coop. Labs Inc."
+            }
+          }
+        ]
       }
     </script>
   </head>
@@ -54,13 +70,36 @@
         <div class="hero__copy reveal">
           <p class="eyebrow">A place beside you</p>
           <h1 id="home-title">A relationship that remembers.</h1>
-          <p class="hero__lede">IO gives your personal agent a body, a memory, and a place beside you.</p>
+          <p class="hero__lede">IO gives your personal AI Agent a body, a memory, and a place beside you.</p>
+          <p class="agent-byline">An AI product by Honey Badger Coop. Labs Inc.</p>
           <p class="status-line" data-local-time>Here with you.</p>
         </div>
-        <figure class="canvas-stage reveal">
+        <figure class="canvas-stage agent-core reveal" data-agent-core>
+          <p class="agent-core__identity mono-label">IO AGENT / v1.0.0</p>
           <canvas data-io-presence aria-hidden="true"></canvas>
+          <ol class="agent-state-list" id="home-agent-states" data-agent-state-list aria-label="IO Agent activity">
+            <li data-agent-state>Observing</li>
+            <li data-agent-state>Remembering</li>
+            <li data-agent-state>Waiting</li>
+            <li data-agent-state>Making</li>
+          </ol>
+          <button class="agent-motion-control" type="button" data-agent-motion-toggle aria-controls="home-agent-states" aria-pressed="false">Pause Agent</button>
           <figcaption class="canvas-stage__caption">A field of points gathers into a quiet, changing presence.</figcaption>
         </figure>
+      </section>
+
+      <section class="agent-trace container reveal" aria-labelledby="agent-trace-title">
+        <div class="agent-trace__intro">
+          <p class="eyebrow">Agent trace</p>
+          <h2 id="agent-trace-title">A mind in motion.</h2>
+          <p>IO moves through the small loop of being with you: sensing what you share, carrying context forward, finding a shape for it, and acting when invited.</p>
+        </div>
+        <ol class="agent-trace__rail">
+          <li class="agent-trace__step"><span>01</span><strong>Perceive</strong><small>A signal enters the shared space.</small></li>
+          <li class="agent-trace__step"><span>02</span><strong>Remember</strong><small>The moment finds its place in context.</small></li>
+          <li class="agent-trace__step"><span>03</span><strong>Reason</strong><small>Possibilities gather before a response.</small></li>
+          <li class="agent-trace__step"><span>04</span><strong>Act</strong><small>A message, a plan, or something made.</small></li>
+        </ol>
       </section>
 
       <section class="editorial-section" aria-labelledby="notices-title">
@@ -137,12 +176,28 @@
       <section class="container ai-fragment-wrap" aria-label="Closing note from IO">
         <p class="ai-fragment reveal">I’ll remember where we left off.</p>
       </section>
+
+      <section class="product-identity container" aria-label="IO product identity">
+        <p class="eyebrow">Product identity</p>
+        <dl>
+          <div><dt>Product</dt><dd>IO</dd></div>
+          <div><dt>Type</dt><dd>Personal AI Agent</dd></div>
+          <div><dt>Company</dt><dd>Honey Badger Coop. Labs Inc.</dd></div>
+          <div><dt>Version</dt><dd>1.0.0</dd></div>
+        </dl>
+      </section>
     </main>
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <a class="wordmark" href="index.html" aria-label="IO home">IO</a>
-        <p>For a relationship that can continue.</p>
+        <div class="site-footer__product">
+          <a class="wordmark" href="index.html" aria-label="IO home">IO</a>
+          <div>
+            <p class="site-footer__version">IO App · Personal AI Agent · v1.0.0 (Build 1)</p>
+            <p>An AI product by Honey Badger Coop. Labs Inc.</p>
+          </div>
+        </div>
+        <p class="site-footer__legal">© 2026 Honey Badger Coop. Labs Inc. All rights reserved.</p>
       </div>
     </footer>
   </body>
